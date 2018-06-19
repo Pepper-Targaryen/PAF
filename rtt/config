@@ -1,0 +1,10 @@
+[collection]
+start = 2016-10-01 00:00:00 +0000
+end = 20117-01-01 00:00:00 +0000
+msmv4 = 1010, 5010
+msmv6 = 2010, 6010
+
+[dir]
+data = data/
+path_analysis = data/path_analysis/
+rtt_analysis = data/rtt_analysis/
