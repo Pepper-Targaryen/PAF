@@ -37,7 +37,7 @@ def evaluation(fact, detection):
 
         raise ValueError('fact and prediction are not of same length.')
 
-    if not (set(fact) == set(detection) == set([0, 1])):
+    if not (set(fact).issubset(set([0, 1])) and set(detection).issubset(set([0, 1])) ):
 
         raise ValueError('fact or/and prediction contain other value than 0/1.')
 
@@ -65,7 +65,30 @@ def evaluation(fact, detection):
 
                 fp += 1
 
-    return dict(tp=tp, fp=fp, fn=fn, tn=tn, precision=float(tp)/(tp+fp), recall=float(tp)/(tp+fn))
+    '''if (float(tp)/(tp+fp+0.000000001)>0.9999):
+
+        precision =1
+
+    if (float(tp)/(tp+fn+0.000000001)>0.9999):
+
+        recall =1'''
+
+
+    if (fp==0):
+
+        precision=1
+    else :
+        precision = float(tp) / (tp + fp )
+
+    if (fn==0):
+
+        recall =1
+    else:
+
+        recall = float(tp) / (tp + fn )
+
+
+    return dict(tp=tp, fp=fp, fn=fn, tn=tn, precision=precision, recall=recall)
 
 
 

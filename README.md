@@ -1,4 +1,10 @@
-# PAF
+# PAF (Projet d'apprentissage finale)
+
+This is a project at the end of the first year in Telecom ParisTech. We have 4 people, 2 Chineses, 1 French and 1 Tunisian in the team. The tutor is Wenqin SHAO, a network teacher from Telecom ParisTech. The project aims at learning knowledge and in this project, we've learned about RTT (Round Trip Time) representing delay in network, application of neural network and two classic algorithms CUSUM and Bayesian.
+The project is mainly based on Python but to apply the algorithm of Bayesian, we still need the environment of R.
+The difficulty of the application of neural network is that there are too many '0' representing that there is no changement at the position. So a performant strategy might be assuming there is no changement at all, which gives a high accuracy. The core of the final model for the neural network is that we trained our model by artificial dataset (small pieces of 100 points and 0 ~ 8 changements). And we test with artificial dataset as well. This gives a high accuracy but still, if we turn to the real dataset, the model is less performant. What's more, we do have a pre-treatment before entering the input data. And the model uses a bidirectional LSTM of 32 parameters.
+The problem is that I don't know how to really design a sophisticated neural network for now. The project gives us 2 weeks and we know nothing before. We start from the classic methods for the first week and do the whole system of evalution, comparing with the 'ground-truth'. The second week, we tried the neural work. And we have a day of demonstration. The tutor is great. He demonstrated how to use the Keras and Tensorflow to implement the neural network and he provided plenty of tools and datasets for the project.
+
 ## Detecting Internet Delay Changes with Artificial Neural Network
 
 The target of this project is simple: how to automatically detect changes in time-series?

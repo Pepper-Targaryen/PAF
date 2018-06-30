@@ -1,0 +1,51 @@
+# Study of LSTM
+
+## Questions
+. what is batch_size, epoch, unites size
+
+  batch_size: le nombre d'échantillons dans un batch. En effet, quand on veut
+  utiliser un ANN, c'est difficile de passer des données directement. Dans ce cas 
+  là, il faut séparer la dataset en quelque batch.
+  
+  Epoch: quand le dataset total passe ANN une fois et le dataset retourne une fois ,
+  on considère que ce processus est un epoch. 
+  
+  unites size: le nombre de neuron dans chanque hidden layer
+  
+  
+. how do we set and learn the input/out data dimensions
+
+  Dans le cas Recurrent (RNN,LSTM)
+  
+      -Si on veut prédicter une autre série en foncition d'une série.  
+       le format de input et output est :
+       input: (time_steps, n_samples, dim_inputs)
+       output: (time_steps, n_samples, dim_outputs),
+       on considère que input et output sont des séquences des vecteurs.
+       
+      -Si on veut prédicter une valeur en fonction d'une série
+       le format de input et output est :
+       input: (time_steps, n_samples, dim_inputs)
+       out : matrice.
+     
+. what do the different layers mean appart from LSTM, say, Dense, Timedistributed, etc.
+  
+  Dense layer in Keras, we consider that the layer is hidden fully connected
+  Dense layer deal with 2D tensor, and output a 2D tensor
+  TimeDistributedDense layer deal with 3D tensor, and output a 3D tensor.
+  The inner operation is the same y=f(Wx+b) where f(x) is activation function, W and b are weight and bias. While in 
+  TimeDistributedDense, the operation is applied to every timestep.
+        
+. what is an activation function, how to choose
+
+ Default: hyperbolic tangent (tanh). If you pass None, no activation is applied (ie. "linear" activation: a(x) = x).
+ We got a significant boost in performance just by using activation function.
+ Positive properties like nonlinearity, differentiability, large value of derivative.
+ It is important to note that there’s no best activation function. One may be better than other in many cases, but will be worse in some other cases.
+ Another important note is that using different activations function doesn’t affect what our network can learn, only how fast (how many data/epochs it needs).
+ https://towardsdatascience.com/exploring-activation-functions-for-neural-networks-73498da59b02
+ 
+. how to choose loss/cost function.
+
+  loss function: evaluation of the difference of the prediction and real result. The less value of the function is, the better    
+  perfomance is.
